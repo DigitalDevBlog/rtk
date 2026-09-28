@@ -1,6 +1,5 @@
 //! Scans AI coding sessions to find commands that could benefit from RTK filtering.
 
-pub mod lexer;
 pub mod provider;
 pub mod registry;
 mod report;
@@ -17,6 +16,7 @@ use registry::{
 };
 use report::{DiscoverReport, SupportedEntry, UnsupportedEntry};
 
+use crate::core::cmdline::lexer;
 use crate::core::tracking::{HookDecisionRecord, Tracker};
 use crate::discover::registry::prefix_contains_rtk_disabled;
 use crate::hooks::hook_check::{HookStatus, status as hook_status};
