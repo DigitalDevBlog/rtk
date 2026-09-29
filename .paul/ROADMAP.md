@@ -5,21 +5,21 @@ A static MkDocs Material site explaining how RTK works: from the Claude Code hoo
 
 ## Current Milestone
 **v0.1 Initial Release** (v0.1.0)
-Status: In progress
-Phases: 0 of 8 complete
+Status: ✅ Complete (2026-09-29)
+Phases: 8 of 8 complete
 
 ## Phases
 
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
-| 1 | Site Foundation | TBD | Not started | - |
-| 2 | Big Picture | TBD | Not started | - |
-| 3 | Hook & Rewrite | TBD | Not started | - |
-| 4 | Filter Pipeline | TBD | Not started | - |
-| 5 | Tracking & Analytics | TBD | Not started | - |
-| 6 | Init & Install | TBD | Not started | - |
-| 7 | Build Your Own | TBD | Not started | - |
-| 8 | Publishing | TBD | Not started | - |
+| 1 | Site Foundation | 1 | ✅ Complete | 2026-09-29 |
+| 2 | Big Picture | 1 | ✅ Complete | 2026-09-29 |
+| 3 | Hook & Rewrite | 1 | ✅ Complete | 2026-09-29 |
+| 4 | Filter Pipeline | 1 | ✅ Complete | 2026-09-29 |
+| 5 | Tracking & Analytics | 1 | ✅ Complete | 2026-09-29 |
+| 6 | Init & Install | 1 | ✅ Complete | 2026-09-29 |
+| 7 | Build Your Own | 1 | ✅ Complete | 2026-09-29 |
+| 8 | Publishing | 1 | ✅ Complete | 2026-09-29 |
 
 ## Phase Details
 

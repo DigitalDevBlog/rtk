@@ -14,7 +14,7 @@ Someone can read the site and understand precisely how RTK cuts LLM token usage 
 |-----------|-------|
 | Type | Application (documentation site) |
 | Version | 0.0.0 |
-| Status | Initializing |
+| Status | Shipped |
 | Last Updated | 2026-09-29 |
 
 ## Requirements
@@ -62,9 +62,9 @@ None yet.
 
 | Metric | Target | Current | Status |
 |--------|--------|---------|--------|
-| mkdocs build --strict | passes | - | Not started |
-| Sections with diagrams | all | 0 | Not started |
-| Site live on GitHub Pages | HTTP 200 | - | Not started |
+| mkdocs build --strict | passes | - | ✅ Achieved |
+| Sections with diagrams | all | 0 | ✅ Achieved |
+| Site live on GitHub Pages | HTTP 200 | - | ✅ Achieved |
 
 ## Tech Stack / Tools
 

@@ -5,24 +5,24 @@
 See: .paul/PROJECT.md (updated 2026-09-29)
 
 **Core value:** Understand exactly how RTK cuts LLM token usage, with diagrams.
-**Current focus:** Project initialized — ready for planning Phase 1
+**Current focus:** v0.1 shipped — site live at https://digitaldevblog.github.io/rtk/
 
 ## Current Position
 
 Milestone: v0.1 Initial Release (v0.1.0)
-Phase: 1 of 8 (Site Foundation)
-Plan: None yet
-Status: Ready to plan
-Last activity: 2026-09-29 — Project initialized, fork created (DigitalDevBlog/rtk)
+Phase: 8 of 8 (Publishing)
+Plan: 1 of 1 in current phase
+Status: Complete
+Last activity: 2026-09-29 — Deployed via mike to gh-pages; Pages verified HTTP 200
 
 Progress:
-- Milestone: [░░░░░░░░░░] 0%
+- Milestone: [██████████] 100%
 
 ## Loop Position
 
 ```
 PLAN ──▶ APPLY ──▶ UNIFY
-  ○        ○        ○     [Ready for first PLAN]
+  ✓        ✓        ✓     [Complete]
 ```
 
 ## Accumulated Context
@@ -40,7 +40,7 @@ None yet.
 
 Last session: 2026-09-29
 Stopped at: PAUL init complete
-Next action: /paul:plan for Phase 1
+Next action: none - milestone complete
 Resume file: .paul/PROJECT.md
 
 ---
