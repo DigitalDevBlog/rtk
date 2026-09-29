@@ -51,3 +51,7 @@ claudedocs
 
 # icm 
 .fastembed_cache/
+
+# Understanding RTK docs site
+.venv/
+/site/

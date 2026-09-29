@@ -1,0 +1,60 @@
+name: Deploy Understanding RTK docs
+
+# Builds the "Understanding RTK" MkDocs site (learn/) and publishes it to the
+# gh-pages branch with mike, which GitHub Pages serves statically. Diagrams are
+# rendered to SVG at build time (Kroki) and shipped inside the site.
+
+on:
+  push:
+    branches: [learn-site, main, develop]
+    paths:
+      - "learn/**"
+      - "mkdocs.yml"
+      - "requirements.txt"
+      - ".github/workflows/deploy-learn-site.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-learn-site
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: Build (strict)
+        run: mkdocs build --strict
+
+      - name: Configure git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      # Docs version follows RTK's release version (major.minor of Cargo.toml).
+      - name: Resolve docs version
+        id: version
+        run: |
+          FULL=$(grep -m1 '^version' Cargo.toml | sed -E 's/.*"([^"]+)".*/\1/')
+          echo "full=$FULL" >> "$GITHUB_OUTPUT"
+          echo "mm=$(echo "$FULL" | cut -d. -f1,2)" >> "$GITHUB_OUTPUT"
+
+      - name: Deploy with mike
+        env:
+          DOCS_VERSION: ${{ steps.version.outputs.mm }}
+          FULL_VERSION: ${{ steps.version.outputs.full }}
+        run: |
+          mike deploy --push --update-aliases "$DOCS_VERSION" latest --title "$FULL_VERSION"
+          mike set-default latest --push

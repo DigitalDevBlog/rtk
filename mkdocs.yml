@@ -1,0 +1,71 @@
+site_name: Understanding RTK
+site_description: How RTK (Rust Token Killer) works internally - hooks, rewrite registry, filters and tracking - explained with diagrams.
+site_url: https://digitaldevblog.github.io/rtk/
+repo_url: https://github.com/DigitalDevBlog/rtk
+repo_name: DigitalDevBlog/rtk
+docs_dir: learn
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - toc.follow
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - tables
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+  - kroki:
+      ServerURL: !ENV [KROKI_SERVER_URL, "https://kroki.io"]
+      FencePrefix: kroki-
+      # POST makes the plugin download each rendered SVG at build time and ship it
+      # inside the site, so the published pages never call kroki.io at view time.
+      HttpMethod: POST
+
+not_in_nav: |
+  /diagrams.md
+
+nav:
+  - Home: index.md
+  - Big Picture:
+      - Overview: big-picture/index.md
+      - Command Lifecycle: big-picture/lifecycle.md
+  - Hook & Rewrite:
+      - Overview: hook/index.md
+      - Rewrite Pipeline: hook/rewrite-pipeline.md
+      - Permissions: hook/permissions.md
+      - Supported Agents: hook/agents.md
+  - Filters:
+      - Overview: filters/index.md
+      - Rust Filter Strategies: filters/rust-filters.md
+      - TOML Filter DSL: filters/toml-dsl.md
+      - Output Recovery: filters/recovery.md
+  - Tracking:
+      - Overview: tracking/index.md
+  - Install & Config:
+      - Overview: install/index.md
+  - Build Your Own:
+      - Blueprint: build-your-own/index.md
+
+extra:
+  version:
+    provider: mike
+    default: latest

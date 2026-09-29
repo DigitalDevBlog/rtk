@@ -1,0 +1,7 @@
+# Tooling for the "Understanding RTK" docs site (learn/)
+mkdocs-material>=9.5
+# Versioned deploys to the gh-pages branch + version switcher
+mike
+# Diagram-as-code rendered to SVG at build time via Kroki
+# Pinned to 0.9.0 (same as the PAUL / GSD Core reference sites)
+mkdocs-kroki-plugin==0.9.0
