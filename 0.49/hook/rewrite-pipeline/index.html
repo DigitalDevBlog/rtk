@@ -1502,7 +1502,7 @@ Three different segmenters exist on purpose: rewrite, analytics classification, 
 <p>Why be so careful about pipes? <code>rtk grep foo | wc -l</code> would count RTK's <em>summarised</em> lines,
 not real matches. The rules keep RTK away from anything whose downstream depends on exact bytes.</p>
 <h2 id="step-3-per-segment">Step 3: per segment<a class="headerlink" href="#step-3-per-segment" title="Permanent link">&para;</a></h2>
-<p><img alt="Kroki" src="kroki-generated-33cfe9c1-bc81-3d86-8c4a-07162c690db4.svg"></p>
+<p><img alt="Kroki" src="kroki-generated-6a009465-9c35-3fcd-9d89-e8fc1f67546c.svg"></p>
 <ul>
 <li><strong>Redirects</strong> are peeled off, then re-appended: <code>cargo test 2&gt;&amp;1</code> → <code>rtk cargo test</code> + <code>2&gt;&amp;1</code>.</li>
 <li><strong><code>head</code>/<code>tail</code></strong> cannot use plain prefix replacement (it would yield <code>rtk read -20 file</code>), so
