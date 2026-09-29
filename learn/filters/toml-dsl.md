@@ -1,7 +1,7 @@
 # TOML Filter DSL
 
 For line-oriented tools (brew, terraform, df, ps, shellcheck, ...) RTK ships **declarative
-filters**: one `.toml` file per tool in `src/filters/` (63 files in v0.49.0). At build time
+filters**: one `.toml` file per tool in `src/filters/` (62 files in v0.49.0). At build time
 `build.rs` concatenates them alphabetically into a single blob embedded in the binary.
 
 ## A complete filter
@@ -60,16 +60,18 @@ flowchart TD
 ```kroki-mermaid
 flowchart LR
     Q["command string"] --> P[".rtk/filters.toml<br/>project-local, needs rtk trust"]
-    P -->|no match| U["user-global filters.toml<br/>in RTK config dir"]
+    P -->|no match| U["global filters.toml<br/>in RTK config dir, needs rtk trust"]
     U -->|no match| B["built-in filters<br/>embedded via build.rs"]
     B -->|no match| PT["passthrough"]
 ```
 
-## Why project filters need trust
+## Why user filters need trust
 
-A project-local `.rtk/filters.toml` is executable *policy* that changes what an agent sees, so a
-cloned repo could hide output from the model. `rtk trust` explicitly approves it, and trust state is
-tracked in `src/hooks/trust.rs`. Unreviewed project filters do not run.
+A `.rtk/filters.toml` in a cloned repo is executable *policy* that changes what an agent sees, so it
+could hide output from the model. Both the project file and the global file must be explicitly
+trusted (`rtk trust`) before they load; trust state is tracked in `src/hooks/trust.rs` and is keyed to
+a SHA-256 of the file's content, so editing a trusted file makes it untrusted again. Only the
+built-in filters load without trust.
 
 ## Where TOML filters run
 

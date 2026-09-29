@@ -69,7 +69,7 @@ not real matches. The rules keep RTK away from anything whose downstream depends
 
 ```kroki-mermaid
 flowchart TD
-    A["segment"] --> B["strip trailing redirects<br/>2>&1, >/dev/null"]
+    A["segment"] --> B["strip trailing redirects<br/>(stderr merge, /dev/null)"]
     B --> C{"already rtk?"}
     C -->|yes| R0["return as is"]
     C -->|no| D{"special case?<br/>head/tail/cat"}
